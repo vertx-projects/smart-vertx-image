@@ -1,4 +1,4 @@
-# smart-vertx-image
+# smart-vertx-image open JDK11
 smart-vertx基础镜像 apline版本
 ## 使用说明
 1. 直接执行以下命令在根目录构建：docker build -t smart-base:1.0.0 .
