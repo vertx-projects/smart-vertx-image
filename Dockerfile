@@ -39,8 +39,9 @@ ENV LANGUAGE=zh_CN.UTF-8
 RUN apk add --no-cache openjdk11 && [ "$JAVA_HOME" = "$(docker-java-home)" ]
 
 # 复制启动脚本
+COPY start.sh /app
 COPY listen_jvm.sh /app
-RUN chmod +x listen_jvm.sh
+RUN chmod +x start.sh listen_jvm.sh
 RUN chown smart:smart /app/ -R
 
 # 使用上述创建的用户
@@ -51,4 +52,4 @@ ONBUILD WORKDIR /app
 ONBUILD COPY ./target/*.jar app.jar
 
 # 设置程序入口
-ENTRYPOINT ["java","-jar","-javaagent:arthas/arthas-agent.jar app.jar ","--add-opens  java.base/java.lang=ALL-UNNAMED "]
+ENTRYPOINT ["sh","/app/start.sh"]
