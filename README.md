@@ -1,5 +1,5 @@
 # smart-vertx-image open JDK11
-smart-vertx基础镜像 apline版本，支持中午 安装 glibc 库,主要为了解决中文乱码, 但是有部分java工程可能会依赖. 比如: aws kinesis 等
+smart-vertx基础镜像 apline版本，安装 glibc 库,主要为了解决中文乱码, 但是有部分java工程可能会依赖. 比如: aws kinesis 等
 ## 使用说明
 1. 直接执行以下命令在根目录构建：docker build -t smart-base:1.0.0 .
 2. 构建成功后新项目需要引用时直接新建dockerFile
